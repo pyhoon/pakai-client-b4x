@@ -14,17 +14,17 @@ Library2=b4xpreferencesdialog
 Library3=jcore
 Library4=jfx
 Library5=jokhttputils2
-Library6=xui views
-Library7=xml2map
+Library6=xml2map
+Library7=xui views
 Module1=|relative|..\B4XMainPage
 NumberOfFiles=4
 NumberOfLibraries=7
 NumberOfModules=1
-Version=10.45
+Version=10.5
 @EndOfDesignText@
 #Region Project Attributes
 ' Product: Pakai Client
-' Version: 1.00
+' Version: 1.10
 ' License: MIT License
 ' Developer: Poon Yip Hoon (Aeric)
 #MainFormWidth: 600
@@ -34,14 +34,14 @@ Version=10.45
 'For source
 '1 - Copy to $APPNAME$.b4j
 '2 - Open $APPNAME$.b4j -> Remove all macros
-'3 - Create Pakai Client (1.00).b4xtemplate
+'3 - Create Pakai Client (1.10).b4xtemplate
 '4 - Copy to B4X Additional Libraries folder
 '5 - Check Release folder
-#Macro: Title, Copy AppName, ide://run?file=%COMSPEC%&args=/c&args=copy&args=%PROJECT%\Pakai-Client.b4j&args=%PROJECT%\$APPNAME$.b4j
+#Macro: Title, Copy AppName, ide://run?File=%COMSPEC%&Args=/c&Args=copy&Args=%PROJECT%\Pakai-Client.b4j&Args=%PROJECT%\$APPNAME$.b4j
 #Macro: Title, Open AppName, ide://run?File=%WINDIR%\explorer.exe&Args=%PROJECT%\$APPNAME$.b4j
-#Macro: Title, Create Template, ide://run?file=%JAVABIN%\jar.exe&WorkingDirectory=..&args=-cMf&args=%PROJECT%\..\..\release\Pakai+Client+(1.00).b4xtemplate&args=..\Shared+Files&args=..\B4XMainPage.bas&args=..\B4J\Files&args=..\B4J\$APPNAME$.b4j*&args=..\B4J\LICENSE&args=..\B4A\Files&args=..\B4A\$APPNAME$.b4a*&args=..\B4A\LICENSE&args=..\B4A\Starter.bas&args=..\B4A\Objects\res\drawable\icon.png&args=..\B4i\Files&args=..\B4i\$APPNAME$.b4i*&args=..\B4i\LICENSE
-#Macro: Title, Copy to AddLibs, ide://run?file=%COMSPEC%&args=/c&args=copy&args=%PROJECT%\..\..\release\*.b4xtemplate&args=%ADDITIONAL%\..\B4X
-#Macro: Title, Release Folder, ide://run?file=%WINDIR%\SysWOW64\explorer.exe&args=%PROJECT%\..\..\release
+#Macro: Title, Create Template, ide://run?File=%JAVABIN%\jar.exe&WorkingDirectory=..&Args=-cMf&Args=%PROJECT%\..\..\release\Pakai+Client+(1.10).b4xtemplate&Args=..\Shared+Files&Args=..\B4XMainPage.bas&Args=..\B4J\Files&Args=..\B4J\$APPNAME$.b4j*&Args=..\B4J\LICENSE&Args=..\B4A\Files&Args=..\B4A\$APPNAME$.b4a*&Args=..\B4A\LICENSE&Args=..\B4A\Starter.bas&Args=..\B4A\Objects\res\drawable\icon.png&Args=..\B4i\Files&Args=..\B4i\$APPNAME$.b4i*&Args=..\B4i\LICENSE
+#Macro: Title, Copy to AddLibs, ide://run?File=%COMSPEC%&Args=/c&Args=copy&Args=%PROJECT%\..\..\release\*.b4xtemplate&Args=%ADDITIONAL%\..\B4X
+#Macro: Title, Release Folder, ide://run?File=%WINDIR%\SysWOW64\explorer.exe&Args=%PROJECT%\..\..\release
 #End Region
 Sub Process_Globals
 	Private fx As JFX
