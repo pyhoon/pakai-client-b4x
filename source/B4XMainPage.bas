@@ -6,14 +6,14 @@ Version=9.85
 @EndOfDesignText@
 #Region Shared Files
 #CustomBuildAction: folders ready, %WINDIR%\System32\Robocopy.exe,"..\..\Shared Files" "..\Files"
-#Macro: Title, Sync files, ide://run?file=%WINDIR%\System32\Robocopy.exe&args=..\..\Shared+Files&args=..\Files&FilesSync=True
-#Macro: Title, Export as zip, ide://run?File=%B4X%\Zipper.jar&Args=Pakai+Client+%281.00%29.zip
+#Macro: Title, Sync files, ide://run?file=%WINDIR%\System32\Robocopy.exe&Args=..\..\Shared+Files&Args=..\Files&FilesSync=True
+#Macro: Title, Export as zip, ide://run?File=%B4X%\Zipper.jar&Args=Pakai+Client+%281.10%29.zip
 #End Region
 
 Sub Class_Globals
 	Private Root As B4XView
 	Private xui As XUI
-	Private URL As String = "http://192.168.50.42:8080/api/" ' Change to your Web API Server URL
+	Private URL As String = "http://192.168.50.42:8080/api/" ' Change to your Pakai Server URL
 	Private lblTitle As B4XView
 	Private lblBack As B4XView
 	Private clvRecord As CustomListView
@@ -167,7 +167,7 @@ Private Sub GetProducts
 			Wait For (sd) Complete (Items As List)
 		End If
 		For Each Item As Map In Items
-			clvRecord.Add(CreateProductItems(Item.Get("code"), GetCategoryName(Item.Get("catid")), Item.Get("name"), NumberFormat2(Item.Get("price"), 1, 2, 2, True), clvRecord.AsView.Width), Item.Get("id"))
+			clvRecord.Add(CreateProductItems(Item.Get("product_code"), GetCategoryName(Item.Get("category_id")), Item.Get("product_name"), NumberFormat2(Item.Get("product_price"), 1, 2, 2, True), clvRecord.AsView.Width), Item.Get("id"))
 		Next
 		Viewing = "Product"
 		lblTitle.Text = GetCategoryName(CategoryId)
@@ -282,12 +282,12 @@ Private Sub ShowDialog1 (Action As String, Item As Map)
 		PrefDialog1.CustomListView1.sv.Height = PrefDialog1.CustomListView1.sv.ScrollViewInnerPanel.Height + 10dip
 	End If
 	' Fix Linux UI (Long Text Button)
-'	Dim btnCancel As B4XView = PrefDialog1.Dialog.GetButton(xui.DialogResponse_Cancel)
-'	btnCancel.Width = btnCancel.Width + 20dip
-'	btnCancel.Left = btnCancel.Left - 20dip
-'	btnCancel.TextColor = xui.Color_Red
-'	Dim btnOk As B4XView = PrefDialog1.Dialog.GetButton(xui.DialogResponse_Positive)
-'	btnOk.Left = btnOk.Left - 20dip
+	'Dim btnCancel As B4XView = PrefDialog1.Dialog.GetButton(xui.DialogResponse_Cancel)
+	'btnCancel.Width = btnCancel.Width + 20dip
+	'btnCancel.Left = btnCancel.Left - 20dip
+	'btnCancel.TextColor = xui.Color_Red
+	'Dim btnOk As B4XView = PrefDialog1.Dialog.GetButton(xui.DialogResponse_Positive)
+	'btnOk.Left = btnOk.Left - 20dip
 	Wait For (sf) Complete (Result As Int)
 	If Result = xui.DialogResponse_Positive Then
 		If 0 = Item.Get("id") Then ' New row
@@ -346,12 +346,12 @@ Private Sub ShowDialog3 (Item As Map, Id As Long)
 		PrefDialog3.CustomListView1.sv.Height = PrefDialog3.CustomListView1.sv.ScrollViewInnerPanel.Height + 10dip
 	End If
 	' Fix Linux UI (Long Text Button)
-'	Dim btnCancel As B4XView = PrefDialog3.Dialog.GetButton(xui.DialogResponse_Cancel)
-'	btnCancel.Width = btnCancel.Width + 20dip
-'	btnCancel.Left = btnCancel.Left - 20dip
-'	btnCancel.TextColor = xui.Color_Red
-'	Dim btnOk As B4XView = PrefDialog3.Dialog.GetButton(xui.DialogResponse_Positive)
-'	btnOk.Left = btnOk.Left - 20dip
+	'Dim btnCancel As B4XView = PrefDialog3.Dialog.GetButton(xui.DialogResponse_Cancel)
+	'btnCancel.Width = btnCancel.Width + 20dip
+	'btnCancel.Left = btnCancel.Left - 20dip
+	'btnCancel.TextColor = xui.Color_Red
+	'Dim btnOk As B4XView = PrefDialog3.Dialog.GetButton(xui.DialogResponse_Positive)
+	'btnOk.Left = btnOk.Left - 20dip
 	PrefDialog3.CustomListView1.GetPanel(0).GetView(0).Text = Item.Get("Item")
 	PrefDialog3.CustomListView1.GetPanel(0).GetView(0).Top = 5dip
 	If xui.IsB4i Then
